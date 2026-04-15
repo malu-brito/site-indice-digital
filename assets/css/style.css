@@ -74,14 +74,12 @@ img {
   padding: 10px;
 }
 
-/* LAYOUT */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* HEADER */
 .site-header {
   position: sticky;
   top: 0;
@@ -138,6 +136,40 @@ img {
 
 .menu-toggle {
   display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+
+    background: #0F172A;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px 0;
+
+    display: none;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
 }
 
 .main-nav a {
@@ -171,14 +203,8 @@ img {
 .hero {
   position: relative;
   padding: 100px 0;
-  /* background: radial-gradient(
-  circle at top,
-  rgba(20, 184, 166, 0.08),
-  #020617 60%
-  ); */
-
   overflow: hidden;
-  min-height: 90vh;
+  min-height: 70vh;
 }
 
 .hero::before {
@@ -387,12 +413,6 @@ img {
 .stats .container {
   position: relative;
   z-index: 2;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
 }
 
 .card {
@@ -734,8 +754,16 @@ img {
 /* O que fazemos */
 .servicos-header {
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto 60px;
+  max-width: 400px;
+  margin: 0 auto 20px;
+}
+
+.servicos-header {
+  margin-bottom: 40px;
+}
+
+.section {
+  padding: 30px;
 }
 
 .servicos-header h1 {
@@ -1108,9 +1136,19 @@ img {
   opacity: 0.9;
 }
 
-@media (max-width: 900px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
+/* RESPONSIVIDADE */
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+
+  .hero-layout {
+    gap: 60px;
+  }
+
+  .empresa-grid {
+    gap: 60px;
   }
 }
 
@@ -1118,50 +1156,33 @@ img {
   .hero-layout,
   .empresa-grid,
   .contact-grid {
-    gap: 28px;
+    gap: 30px;
+  }
+
+  .servicos-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px;
-  }
-
-  .whatsapp-banner {
-    width: calc(100% - 40px);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 900px) {
+
   .section {
     padding: 60px 0;
   }
 
-  .header-inner {
-    height: auto;
-    padding: 14px 0;
-    align-items: flex-start;
-  }
-
-  .header-left {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .main-nav {
-    width: 100%;
-    justify-content: center;
-    gap: 14px;
-  }
-
   .hero {
-    min-height: auto;
     padding: 70px 0;
+    min-height: auto;
   }
 
   .hero-layout,
   .empresa-grid,
-  .servicos-grid,
-  .contact-grid {
+  .contact-grid,
+  .servicos-grid {
     grid-template-columns: 1fr;
     flex-direction: column;
   }
@@ -1175,45 +1196,50 @@ img {
   }
 
   .hero-visual {
-    width: 100%;
     max-width: 100%;
   }
 
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
   .whatsapp-banner {
-    width: calc(100% - 40px);
-    height: auto;
-    padding: 24px;
-    gap: 20px;
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .banner-content {
-    align-items: flex-start;
-  }
-
-  .servico-card {
-    min-height: auto;
+    gap: 20px;
+    height: auto;
   }
 }
 
 @media (max-width: 600px) {
+
   .container {
     padding: 0 16px;
   }
 
   .section {
-    padding: 48px 0;
+    padding: 50px 0;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 10px;
   }
 
   .main-nav {
     flex-direction: column;
-    align-items: center;
     gap: 10px;
+  }
+
+  .hero-copy h1 {
+    font-size: 28px;
   }
 
   .hero-actions {
     width: 100%;
+    flex-direction: column;
   }
 
   .hero-actions .btn {
@@ -1221,59 +1247,24 @@ img {
     text-align: center;
   }
 
-  .hero-mini-card {
-    min-width: 165px;
-    padding: 14px 12px;
-    font-size: 14px;
-  }
-
-  .hero-carousel::before,
-  .hero-carousel::after {
-    height: 52px;
-  }
-
-  .hero-carousel {
-    height: 210px;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .empresa-numeros .numeros-grid {
-    grid-template-columns: 1fr;
-  }
-
   .servico-card {
-    padding: 24px 18px;
+    padding: 20px;
   }
 
-  .servico-card ul li {
+  .servico-card p {
     font-size: 16px;
   }
 
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .servico-card ul li {
+    font-size: 15px;
+  }
+
+  .whatsapp-banner a {
+    width: 100%;
   }
 
   .footer-bottom {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .legal-links {
-    flex-wrap: wrap;
-  }
-
-  .contact-form {
-    padding: 22px 18px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-carousel-track {
-    animation: none;
+    gap: 10px;
   }
 }
